@@ -85,8 +85,19 @@
                 // Failed login
                 errorMessageElement.textContent = 'Login failed. Please check your username and password.';
             }
+<body>
+    <form id="loginForm">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
 
-             <script>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <script>
         function login() {
             // Perform client-side validation
             const username = document.getElementById('username').value;
