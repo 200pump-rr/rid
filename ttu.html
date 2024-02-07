@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page with Login Failed</title>
+    <title>Login Page with Messages</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,6 +51,11 @@
             background-color: #45a049;
         }
 
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
+
         .error-message {
             color: red;
             margin-top: 10px;
@@ -68,6 +73,7 @@
 
         <button type="button" onclick="login()">Login</button>
 
+        <p class="success-message" id="successMessage"></p>
         <p class="error-message" id="errorMessage"></p>
     </form>
 
@@ -75,43 +81,19 @@
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const successMessageElement = document.getElementById('successMessage');
             const errorMessageElement = document.getElementById('errorMessage');
 
             // Check if the entered credentials are correct (this is just a simple example)
             if (username === 'example' && password === 'password') {
                 // Successful login
-                alert('Login successful!');
+                successMessageElement.textContent = 'Login successful!';
+                errorMessageElement.textContent = '';
             } else {
                 // Failed login
+                successMessageElement.textContent = '';
                 errorMessageElement.textContent = 'Login failed. Please check your username and password.';
             }
-    <form id="loginForm">
-        <h2>Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" required>
-
-        <button type="button" onclick="login()">Login</button>
-    </form>
-
-    <script>
-        function login() {
-            // Perform client-side validation
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (!username || !password) {
-                alert('Please enter both username and password.');
-                return;
-            }
-
-            // Add your authentication logic here
-            // For a real-world application, you would send a request to a server for authentication
-            // For simplicity, we'll just show an alert indicating a successful login
-            alert('Login successful!');
-
         }
     </script>
 </body>
