@@ -85,6 +85,23 @@
                 // Failed login
                 errorMessageElement.textContent = 'Login failed. Please check your username and password.';
             }
+
+             <script>
+        function login() {
+            // Perform client-side validation
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('Please enter both username and password.');
+                return;
+            }
+
+            // Add your authentication logic here
+            // For a real-world application, you would send a request to a server for authentication
+            // For simplicity, we'll just show an alert indicating a successful login
+            alert('Login successful!');
+
         }
     </script>
 </body>
